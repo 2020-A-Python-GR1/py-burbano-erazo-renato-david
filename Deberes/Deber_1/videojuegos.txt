@@ -1,0 +1,3 @@
+Legens;2016;25.0;False;Xbox
+Outlas;2016;36.0;False;Ps3
+Zelda;1998;32.0;False;PS#

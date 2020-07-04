@@ -1,0 +1,3 @@
+Terror;Alta;18;Single;[ Outlas]
+Accion;Alta;13;Multi;[ Zelda]
+Aventura;Baja;12;Multi;[ Legens]
