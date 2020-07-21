@@ -39,6 +39,8 @@ def agregar_genero():
         archivo_abierto.close()
     except Exception as error:
         print(error)
+    print("Se ha agregado el nuevo genero")
+    system("Pause")
 
 def videojuego_genero(genero,nombre):
     try:
@@ -60,6 +62,7 @@ def videojuego_genero(genero,nombre):
     except Exception as error:
         print(error)
 
+
 def agregar_videojuego():
     try:
         path = "videojuegos.txt"
@@ -72,6 +75,8 @@ def agregar_videojuego():
         print(error)
     genero = input("A qué categoria pertenece: ")
     videojuego_genero(genero,nuevo_Videojuego.nombre)
+    print("Se ha agregado el nuevo videojuego")
+    system("Pause")
 
 def modificar_genero():
     genero = input("Qué genero desea modificar: ")
@@ -99,6 +104,8 @@ def modificar_genero():
         escritura.close()
     except Exception as error:
         print(error)
+    print(f"Se ha modificado el genero {genero}")
+    system("Pause")
 
 def modificar_videojuego():
     videojuego = input("Qué videojuego desea modificar: ")
@@ -127,6 +134,138 @@ def modificar_videojuego():
         escritura.close()
     except Exception as error:
         print(error)
+    print(f"Se ha modificado el videojuego {videojuego}")
+    system("Pause")
+
+def eliminar_genero():
+    genero = input("Qué genero desea eliminar: ")
+    try:
+        path = "generos.txt"
+        lectura = open(path,'r')
+        lineas = lectura.readlines()
+        lectura.close()
+        valor = 0
+        for linea in lineas:
+            palabras = linea.split(";")
+            for palabra in palabras:
+                if palabra == genero:
+                    valor = lineas.index(linea)
+                    break
+        print("\nCaracterísticas: ")
+        for palabra in palabras:
+            print(palabra+" ")
+        lineas.pop(valor)
+        escritura = open(path,'w')
+        escritura.writelines(lineas)
+        escritura.close()
+    except Exception as error:
+        print(error)
+    print(f"Se ha eliminado el genero {genero}")
+    system("Pause")
+
+def eliminar_videojuego():
+    videojuego = input("Qué videojuego desea Eliminar: ")
+    try:
+        path = "videojuegos.txt"
+        lectura = open(path,'r')
+        lineas = lectura.readlines()
+        lectura.close()
+        valor = 0
+        for linea in lineas:
+            palabras = linea.split(";")
+            for palabra in palabras:
+                if palabra == videojuego:
+                    valor = lineas.index(linea)
+                    break
+        print("\nCaracterísticas: ")
+        for palabra in palabras:
+            print(palabra+" ")
+        lineas.pop(valor)
+        escritura = open(path,'w')
+        escritura.writelines(lineas)
+        escritura.close()
+    except Exception as error:
+        print(error)
+    print(f"Se ha eliminado el videojuego {videojuego}")
+    system("Pause")
+    
+
+def mostrar_generos():
+    try:
+        path = "generos.txt"
+        lectura = open(path,'r')
+        lineas = lectura.readlines()
+        lectura.close()
+        generos = []
+        for linea in lineas:
+            palabras = linea.split(";")
+            generos.append(Genero(palabras[0],palabras[1],palabras[2],palabras[3],palabras[4]))
+        print("\nLista de Género")
+        for genero in generos:
+            print("Nombre: "+genero.nombre+"\tPopularidad: "+genero.popularidad+
+                "\tEdad mínima: "+genero.edad_minima+"\tJugabilidad:"+genero.jugabilidad+
+                "\tJuegos: "+genero.videojuegos[:-1])
+    except Exception as error:
+        print(error)
+    system("Pause")
+
+def mostrar_videojuegos():
+    try:
+        path = "videojuegos.txt"
+        lectura = open(path,'r')
+        lineas = lectura.readlines()
+        lectura.close()
+        videojuegos = []
+        for linea in lineas:
+            palabras = linea.split(";")
+            videojuegos.append(Videojuego(palabras[0],palabras[1],palabras[2],palabras[3],palabras[4]))
+        print("\nLista de Videojuegos")
+        for videojuego in videojuegos:
+            print("Nombre: "+videojuego.nombre+"\tFecha Lanzamiento: "+videojuego.fecha_lanzamiento+
+                "\tPrecio: "+str(videojuego.precio)+"\tDisponibilidad:"+str(videojuego.disponible)+
+                "\tConsola: "+videojuego.consola[:-1])
+    except Exception as error:
+        print(error)
+    system("Pause")
+
+def buscar_genero():
+    genero = input("Qué genero desea buscar: ")
+    try:
+        path = "generos.txt"
+        lectura = open(path,'r')
+        lineas = lectura.readlines()
+        lectura.close()
+        for linea in lineas:
+            palabras = linea.split(";")
+            for palabra in palabras:
+                if palabra == genero:
+                    break
+        print("\nCaracterísticas: ")
+        for palabra in palabras:
+            print(palabra+" ")
+    except Exception as error:
+        print(error)
+    system("Pause")
+
+def buscar_videojuego():
+    videojuego = input("Qué videojuego desea Buscar: ")
+    try:
+        path = "videojuegos.txt"
+        lectura = open(path,'r')
+        lineas = lectura.readlines()
+        lectura.close()
+        for linea in lineas:
+            palabras = linea.split(";")
+            for palabra in palabras:
+                if palabra == videojuego:
+                    break
+        print("\nCaracterísticas: ")
+        for palabra in palabras:
+            print(palabra+" ")
+    except Exception as error:
+        print(error)
+    system("Pause")
+
 
 while True:
     print("\nBienvenido a mi programa\n")
@@ -139,15 +278,25 @@ while True:
         print("1. Agregar nuevo Genero")
         print("2. Modificar Genero")
         print("3. Eliminar Genero")
+        print("4. Mostrar todos los Generos")
+        print("5. Buscar un genero específico")
+
         opcion2 = int(input("Elija una Opcion: "))
         if opcion2 == 1:
             print("\n")
             agregar_genero()
         elif opcion2 == 2:
-            print("Modificar un Genero")
+            print("\n")
             modificar_genero()
         elif opcion2 == 3:
-            print("Eliminar un Genero")
+            print("\n")
+            eliminar_genero()
+        elif opcion2 == 4:
+            print("\n")
+            mostrar_generos()
+        elif opcion2 == 5:
+            print("\n")
+            buscar_genero()
 
     elif opcion == 2:
         system("cls")
@@ -155,6 +304,9 @@ while True:
         print("1. Agregar nuevo Videojuego")
         print("2. Modificar Videojuego")
         print("3. Eliminar Videojuego")
+        print("4. Mostrar todos los Videojuegos")
+        print("5. Buscar un videojuego específico")
+
         opcion2 = int(input("Elija una Opcion: "))
         if opcion2 == 1:
             print("\n")
@@ -163,7 +315,13 @@ while True:
             print("\n")
             modificar_videojuego()
         elif opcion2 == 3:
-            print("Eliminar un Videojuego")
+            print("\n")
+            eliminar_videojuego()
+        elif opcion2 == 4:
+            print("\n")
+            mostrar_videojuegos()
+        elif opcion2 == 5:
+            print("\n")
+            buscar_videojuego()
 
-    time.sleep(2)
     system("cls")
