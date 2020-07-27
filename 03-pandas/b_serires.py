@@ -81,6 +81,111 @@ serie_valor_ciudad["Quito"] = serie_valor_ciudad["Quito"]-50
 print("Lima" in serie_valor_ciudad)
 
 
+svc_cuadrado = np.square(serie_valor_ciudad)
+
+ciudades_uno = pd.Series({
+    "Montañita": 300,
+    "Guayaquil": 10000,
+    "Quito": 20000})
+
+ciudades_dos = pd.Series({
+    "Loja": 300,
+    "Guayaquil": 10000})
+
+ciudades_uno["Loja"] = 0
+
+print(ciudades_uno+ciudades_dos) #Sumará los elementos que tengan ambas series, sino el valor sera NaN
+print(type(ciudades_uno+ciudades_dos)) #Sigue siendo una Serie
+
+ciudades_add= ciudades_uno.add(ciudades_dos) #es lo mismo que utilizar +
+# sub()
+# mul()
+# div()
+##
+'''
+ciud_concat = pd.concat([
+    ciudades_uno,
+    ciudades_dos]) #No segrega los valores iguales
+
+ciud_concat_verify = pd.concat([
+    ciudades_uno,
+    ciudades_dos],
+    verify_integrity = False) #Utilizar verify integrity mostrará el error, en este caso de que existen elemento iguales en ambas series
+
+ciud_concat_verify = cuidades_uno.append( #Es la mismo que concat
+    ciudades_dos,
+    verify_integrity = False)
+
+##
+
+print(cuidades_uno.max())
+print(pd.Series.max(cuidades_uno))
+print(np.max(ciudades_uno))
+
+print(cuidades_uno.min())
+print(pd.Series.min(cuidades_uno))
+print(np.min(ciudades_uno))
+
+
+print(ciudades_uno.mean())
+print(ciudades_uno.median())
+print(np.avarage(ciudades_uno))
+
+print(ciudades_uno.head(2))
+print(ciudades_uno.tail(2))
+'''
+
+
+print(ciudades_uno.sort_values(
+    ascending = False).head(2))
+
+print(ciudades_uno.sort_values().tail(2))
+
+
+
+# 0 - 1000 %5
+# 1001 - 5000 10%
+# 5001 - 20000 15%
+
+def calcular(valor_serie):
+    if(valor_serie<=1000):
+        return valor_serie * 1.05
+    if(valor_serie > 1000 and valor_serie <= 5000):
+        return valor_serie * 1.10
+    if(valor_serie > 5000):
+        return valor_serie * 1.15
+    
+ciudad_calculada = ciudades_uno.map(calcular)
+
+
+# if else
+# Cuando NO CUMPLE la condición, aplica
+
+resultado = ciudades_uno.where(ciudades_uno < 1000,
+                   ciudades_uno * 1.05)
+
+
+
+#Cosas que pueden pasar con Pandas
+
+series_numeros = pd.Series(['1.0','2',-3])
+
+print(pd.to_numeric(series_numeros)) 
+
+#integer, signed, unsigned, float
+print(pd.to_numeric(series_numeros,downcast = 'unsigned')) 
+
+series_numeros_err = pd.Series(['no tiene','1.0','2',-3])
+
+#iignore, coerce, raise (default)
+#print(pd.to_numeric(series_numeros_err))
+print(pd.to_numeric(series_numeros_err, errors='ignore'))
+print(pd.to_numeric(series_numeros_err, errors='coerce')) #Aquel elemento que no cumple para ser un entero tendrá el valor NaN
+
+   
+
+
+
 
 
 
