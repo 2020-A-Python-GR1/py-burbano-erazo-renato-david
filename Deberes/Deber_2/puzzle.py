@@ -33,8 +33,7 @@ class Tiles():
             tile.pos = gPos
         except:
             pass
-        for tile in self.tiles:
-            print(tile.pos)
+        
         
     def slide(self,key):
         print(key)
@@ -106,7 +105,6 @@ class Board(Frame):
     def openImage(self,image):
         image = Image.open(image)
         if min(image.size) > self.MAX_BOARD_SIZE:
-            print("Entró")
             image = image.resize((self.MAX_BOARD_SIZE,self.MAX_BOARD_SIZE),Image.ANTIALIAS)
         if image.size[0] != image.size[1]:
             image = image.crop((0,0,image.size[0],image.size[0]))
@@ -170,6 +168,7 @@ class Main():
         grid = self.grid.get()
         if os.path.exists(image):
             self.board = Board(self.parent,image,self.grid,self.win)
+            
             self.mainFrame.pack_forget()
             self.board.pack()
             
