@@ -21,11 +21,14 @@ s3 = df1[2]
 
 #Operacion con la serie
 
+print(arr_pand * 2)
+
 df1[3] = s1
 
 df1[4] = s1 *s2
 
 print(df1[2][0])
+
 
 datos_fisicos_uno = pd.DataFrame(
     arr_pand,
