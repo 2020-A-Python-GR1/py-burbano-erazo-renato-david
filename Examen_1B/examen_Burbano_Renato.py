@@ -200,13 +200,22 @@ print(frutas.tolist())
 # dtype: float64
 
 ```
-
+'''
 
 ## 22)Â¿Como importar solo columnas especificas de un archivo csv?
 
 https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv.
 
+path = "C://GitKraken_Repositorios//py-burbano-erazo-renato-david//03-pandas//data//BostonHousing.csv"
 
+df1 = pd.read_csv(
+    path,
+    nrows=10)
 
-'''
+columnas = ['id','artist','title','medium','year','acquisitionYear','height','width','units']
+
+df2 = pd.read_csv(path, nrows = 10, usecols = columnas)
+
+df3 = pd.read_csv(path, nrows = 10, usecols = columnas, index_col = 'id')
+
 
