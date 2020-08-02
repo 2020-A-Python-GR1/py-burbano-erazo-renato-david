@@ -76,7 +76,7 @@ myarr = np.arange(26)
 mydict = dict(zip(mylist, myarr))
 ser = pd.Series(mydict) 
 # Transformar la serie en dataframe y hacer una columna indice
-ser = pd.DataFrame(ser)
+ser = pd.DataFrame(ser,index_col = 0)
 
 
 ## 13) Â¿Como combinar varias series para hacer un DataFrame?
@@ -204,7 +204,7 @@ print(frutas.tolist())
 
 ## 22)Â¿Como importar solo columnas especificas de un archivo csv?
 
-https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv.
+##https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv.
 
 path = "C://GitKraken_Repositorios//py-burbano-erazo-renato-david//03-pandas//data//BostonHousing.csv"
 
@@ -212,10 +212,10 @@ df1 = pd.read_csv(
     path,
     nrows=10)
 
-columnas = ['id','artist','title','medium','year','acquisitionYear','height','width','units']
+columnas = ['crim','zn','indus','chas','nox','rm','age']
 
 df2 = pd.read_csv(path, nrows = 10, usecols = columnas)
 
-df3 = pd.read_csv(path, nrows = 10, usecols = columnas, index_col = 'id')
+df3 = pd.read_csv(path, nrows = 10, usecols = columnas, index_col = 'crim')
 
 
