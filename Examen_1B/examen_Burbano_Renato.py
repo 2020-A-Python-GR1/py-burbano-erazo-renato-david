@@ -33,7 +33,7 @@ matriz_tres = np.arange(9).reshape(3,3)
 
 arreglo = [1,2,0,0,4,0]
 
-encontrar = np.array(arreglo) < 2
+encontrar = np.array(arreglo) !=0
 
 
 ## 7) Crear una matriz de identidad 3 x 3 

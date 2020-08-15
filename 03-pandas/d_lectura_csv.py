@@ -19,7 +19,7 @@ columnas = ['id','artist','title','medium','year','acquisitionYear','height','wi
 
 df2 = pd.read_csv(path, nrows = 10, usecols = columnas)
 
-df3 = pd.read_csv(path, nrows = 10, usecols = columnas, index_col = 'id')
+df3 = pd.read_csv(path, usecols = columnas, index_col = 'id')
 
 
 path_guardado = path = "C://GitKraken_Repositorios//py-burbano-erazo-renato-david//03-pandas//data//artwork_data.pickle"
