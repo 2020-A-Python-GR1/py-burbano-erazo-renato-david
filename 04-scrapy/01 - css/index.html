@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrapy</title>
+    <style>
+        /* ID
+            # + nombreID
+        */
+        #titulo-uno{
+            background-color: aqua;
+
+        }
+        /* Nombre-Etiqueta
+            nombre-etiqueta
+        */
+        h1{
+            background-color: chartreuse;
+        }
+        body{
+            color: brown;
+            background-color: cornsilk;
+        }
+        p{
+            background-color: blue;
+        }
+        /* Clase
+            . + nombre-clase
+        */
+        .fondo_rojo{
+            background-color: red;
+        }
+        .fondo_verde{
+            background-color: green;
+        }
+        .fondo_amarrillo{
+            background-color: yellow;
+        }
+        /*
+        JERARQUÍA
+                Style > ID > Clase > Etiqueta
+                Ultimo definido > anterior definido
+        
+        !important hace un override
+        */
+        
+        /*
+        Etiqueta dentro de otra etiqueta
+        */
+        li > p{
+            background-color: violet;
+        }
+        li > p.epn.uno{
+            background-color: green;
+        }
+        li > p.epn{
+            background-color: red;
+        }
+        body > ul > li > p{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo-uno">TITULO</h1> <!--Busqueda por ID-->
+    <h1>Otro titulo</h1>
+    <h1 class="fondo_rojo">Tercer Título</h1>
+    <p>Parrafo uno</p>
+    <p class="fondo-rojo fondo_amarrillo fondo_verde" style="background-color: black;" id="titulo-uno">Parrafo dos</p>
+    <p class="fondo_rojo">Parrafo tres</p>
+    <ul>
+        <li><p class="epn.uno">Cero</p></li>
+        <li>Uno</li>
+        <li><p>Dos</p></li>
+        <li>Tres</li>
+        <li><p class="epn">Cuatro</p></li>
+    </ul>
+    <li><p>Fuera de UL</p></li>
+</body>
+</html>
