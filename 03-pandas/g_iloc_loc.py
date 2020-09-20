@@ -14,6 +14,7 @@ df = pd.read_csv(path)
 # loc ---> Obtener un registro, filtrado horizontal
 
 filtrado_horizontal = df.loc[1035] # Serie,    Filtrar por indice (1)
+
 print(filtrado_horizontal)
 print(filtrado_horizontal['artist'])
 print(filtrado_horizontal.index)
@@ -31,6 +32,7 @@ df_1035 = df[df.index == 1035]
 #loc -->  acceder grupo filas y columnas por LABEL (ARR TRUE OR FALSE)
 segundo = df.loc[1035] # Filtrar por indice (1)
 segundo = df.loc[[1035,1036]] # Filtrar por arr indice
+
 
 segundo = df.loc[3:5] #Filtrado desde x indice hasta y indice
 segundo = df.loc[df.index == 1035] #Filtrar por Arreglo -> True, False
@@ -91,7 +93,6 @@ notas.loc[:,"disciplina"] = 6
 promedio = (notas["nota 1"] + notas["nota 2"] + notas["disciplina"])/3
 
 promedio2 = notas.mean()
-
 
 
 

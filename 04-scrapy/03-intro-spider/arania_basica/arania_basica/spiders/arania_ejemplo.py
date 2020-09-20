@@ -3,12 +3,12 @@ import scrapy
 class IntroSpider(scrapy.Spider):
     name = 'introduccion_spider'
 
-    urls = [
+    start_urls = [
         'http://books.toscrape.com/catalogue/category/books/travel_2/index.html'
     ]
 
     def start_requests(self):
-        for url in urls:
+        for url in start_urls:
             yield scrapy.Requests(url=url)
 
     def parse(self,response): ##parsean las cosas

@@ -61,14 +61,18 @@ def llenar_valores_vacios(series, tipo):
             return series_valores_llenos
             ##
         elif(tipo == 'mas_repetido'):
-            pass
+            ##valor_mas _repetido = series.value_counts().idmax()
+            ##serie_valores_llenos = series.fillna(valor_repetido)
+            ##return series_valores_llenos
             ##
+            pass
     
 def transformar_df(df):
     df_artist = df.groupby('artist')
     lista_df = []
     for artista, df in df_artist:
         copia_df = df.copy()
+        
         
         serie_w = copia_df['width']
         serie_h = copia_df['height']

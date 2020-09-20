@@ -37,10 +37,10 @@ path_excel_columnas = "/home/dev-11/Documents/Github/py-eguez-sarzosa-vicente-ad
 # artwork_data_columnas.xlsx
 
 # Con el indice como columna
-# sub_df.to_excel(path_excel)
+sub_df.to_excel(path_excel)
 
 # Sin el indice como columna
-# sub_df.to_excel(path_excel_indice, index = False)
+sub_df.to_excel(path_excel_indice, index = False)
 
 columnas = ['artist', 'title', 'year']
 

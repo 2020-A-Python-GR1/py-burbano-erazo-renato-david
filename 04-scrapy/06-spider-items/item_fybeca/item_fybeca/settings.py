@@ -68,6 +68,8 @@ ITEM_PIPELINES = {
     # Menor tiene MAYOR Importancia
     # Mayor tiene MENOR Importancia
     # 100 > 200 > 300 > 400 > 500
+    #'item_fybeca.pipelines.ItemFybecaPipeline' : 100 
+    
     'item_fybeca.pipelines.TransformarTituloaMinusculas': 100, # Primero
     'item_fybeca.pipelines.SoloCapsulasPipeline': 200, # Segundo
 }
